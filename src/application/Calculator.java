@@ -49,7 +49,11 @@ public class Calculator {
 		 */
 	}
 	
-	//Initialized Project
+	//Feature3
+	public double iAusPundR(double p,double r){
+		return Math.sqrt(p/r);
+	}
+
 	
 	
 	
