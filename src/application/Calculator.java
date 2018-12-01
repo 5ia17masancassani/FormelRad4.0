@@ -61,6 +61,21 @@ public class Calculator {
 	public double iAusUundR(double u,double r){
 		return u/r;
 	}
+	
+	//Feature 4
+		public double rAusUundP(double u,double p){
+			return (u*u)/p;
+		}
+		
+		public double rAusPundI(double p, double i){
+			return p /(i*i);
+		}
+		
+		public double rAusUundI(double u,double i){
+			return u / i;
+		}
+
+
 
 	
 	
