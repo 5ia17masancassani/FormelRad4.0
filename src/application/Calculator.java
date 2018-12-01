@@ -70,4 +70,8 @@ public class Calculator {
 		return r * i;
 	}
 	
+	public double uAusPundI(double p, double i) {
+		return p / i;
+	}
+	
 }
