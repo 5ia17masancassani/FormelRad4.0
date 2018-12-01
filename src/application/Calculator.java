@@ -58,7 +58,60 @@ public class Calculator {
 		 * Hier auf Grund der vorhanden Werte entscheiden welche Methode unten
 		 * aufgerufen werden muss.
 		 */
+		if (leistung == 0.0 && spannung == 0.0 && strom != 0.0 && widerstand != 0.0) {
+
+			leistung = Math.round(pAusRundI(widerstand, strom) * 100.0) / 100.0;
+			
+			spannung = Math.round(uAusRundI(widerstand, strom) * 100.0) / 100.0;
+			
+
+		}
 	
+		if (leistung == 0.0 && spannung != 0.0 && strom == 0.0 && widerstand != 0.0) {
+
+			leistung = Math.round(pAusUundR(spannung, widerstand) * 100.0) / 100.0;
+			
+			strom = Math.round(iAusUundR(spannung, widerstand) * 100.0) / 100.0;
+			
+
+		}
+		
+		if (leistung != 0.0 && spannung == 0.0 && strom == 0.0 && widerstand != 0.0) {
+
+			spannung = Math.round(uAusPundR(leistung, widerstand) * 100.0) / 100.0;
+			
+			strom = Math.round(iAusPundR(leistung, widerstand) * 100.0) / 100.0;
+			
+
+		}
+		
+		if (leistung == 0.0 && spannung != 0.0 && strom != 0.0 && widerstand == 0.0) {
+
+			leistung = Math.round(pAusUundI(spannung, strom) * 100.0) / 100.0;
+			
+			widerstand = Math.round(rAusUundI(spannung, strom) * 100.0) / 100.0;
+		
+
+		}
+		
+		if (leistung != 0.0 && spannung == 0.0 && strom != 0.0 && widerstand == 0.0) {
+
+			spannung = Math.round(uAusPundI(leistung, strom) * 100.0) / 100.0;
+		
+			widerstand = Math.round(rAusPundI(leistung, strom) * 100.0) / 100.0;
+			
+
+		}
+		
+		if (leistung != 0.0 && spannung != 0.0 && strom == 0.0 && widerstand == 0.0) {
+
+			strom = Math.round(iAusPundU(leistung, spannung) * 100.0) / 100.0;
+			
+			widerstand = Math.round(rAusUundP(spannung, leistung) * 100.0) / 100.0;
+			
+
+		}
+		
 
 	}
 
@@ -89,6 +142,31 @@ public class Calculator {
 
 	public double uAusPundR(double p, double r) {
 		return Math.sqrt(p * r);
+	}
+
+	public double iAusPundR(double p, double r) {
+		return Math.sqrt(p / r);
+	}
+
+	public double iAusPundU(double p, double u) {
+		return p / u;
+	}
+
+	public double iAusUundR(double u, double r) {
+
+		return u / r;
+	}
+
+	public double rAusUundP(double u, double p) {
+		return (u * u) / p;
+	}
+
+	public double rAusPundI(double p, double i) {
+		return p / (i * i);
+	}
+
+	public double rAusUundI(double u, double i) {
+		return u / i;
 	}
 
 	
