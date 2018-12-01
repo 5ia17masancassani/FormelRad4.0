@@ -61,12 +61,13 @@ public class Calculator {
 		if (leistung == 0.0 && spannung == 0.0 && strom != 0.0 && widerstand != 0.0) {
 
 			leistung = Math.round(pAusRundI(widerstand, strom) * 100.0) / 100.0;
-			logger.log(Level.INFO, "pAusRundI");
+			
 			spannung = Math.round(uAusRundI(widerstand, strom) * 100.0) / 100.0;
-			logger.log(Level.INFO, "uAusRundI");
+			
 
 		}
 	
+		
 
 	}
 
