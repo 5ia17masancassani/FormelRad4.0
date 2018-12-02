@@ -12,7 +12,7 @@ import java.util.logging.Logger;
 public class Calculator {
 
 
-	  
+	private Logger logger = Logger.getLogger(Calculator.class.getName());  
 
 	private double leistung;
 	private double spannung;
