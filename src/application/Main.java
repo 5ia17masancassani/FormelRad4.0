@@ -116,6 +116,21 @@ public class Main extends Application {
 				System.out.print("Vorher:  ");
 				System.out.println(myCalculator.toString());
 				
+				if(myCalculator.getError().equals("")) {
+					
+					if(myCalculator.getLeistung() == 0.0) {
+						txLeistung.setStyle("-fx-text-fill: red;");
+					}
+					if(myCalculator.getSpannung() == 0.0) {
+						txSpannung.setStyle("-fx-text-fill: red;");
+					}
+					if(myCalculator.getStrom() == 0.0) {
+						txStrom.setStyle("-fx-text-fill: red;");
+					}
+					if(myCalculator.getWiderstand() == 0.0) {
+						txWiderstand.setStyle("-fx-text-fill: red;");
+					}
+				
 				
 					myCalculator.calculate();
 				
