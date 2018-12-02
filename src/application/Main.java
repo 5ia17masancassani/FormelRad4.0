@@ -86,6 +86,24 @@ public class Main extends Application {
 			btnReset.setText("Reset");
 			root.getChildren().add(btnReset);
 			
+			Label lbError = new Label("");
+			lbError.relocate(100, 445);
+			lbError.setFont(Font.font(15));
+			root.getChildren().add(lbError);
+			
+			btnReset.setOnAction(e -> {
+				txLeistung.setStyle("-fx-text-fill: black;");
+				txSpannung.setStyle("-fx-text-fill: black;");
+				txStrom.setStyle("-fx-text-fill: black;");
+				txWiderstand.setStyle("-fx-text-fill: black;");
+				
+				txLeistung.setText("");
+				txSpannung.setText("");
+				txStrom.setText("");
+				txWiderstand.setText("");
+				
+			});
+			
 			
 			btnBerechnen.setOnAction(e -> {
 				
@@ -111,6 +129,21 @@ public class Main extends Application {
 				System.out.print("Vorher:  ");
 				System.out.println(myCalculator.toString());
 				
+				if(myCalculator.getError().equals("")) {
+					
+					if(myCalculator.getLeistung() == 0.0) {
+						txLeistung.setStyle("-fx-text-fill: red;");
+					}
+					if(myCalculator.getSpannung() == 0.0) {
+						txSpannung.setStyle("-fx-text-fill: red;");
+					}
+					if(myCalculator.getStrom() == 0.0) {
+						txStrom.setStyle("-fx-text-fill: red;");
+					}
+					if(myCalculator.getWiderstand() == 0.0) {
+						txWiderstand.setStyle("-fx-text-fill: red;");
+					}
+				
 				
 					myCalculator.calculate();
 				
@@ -121,6 +154,11 @@ public class Main extends Application {
 				txSpannung.setText(Double.toString(myCalculator.getSpannung()));
 				txStrom.setText(Double.toString(myCalculator.getStrom()));
 				txWiderstand.setText(Double.toString(myCalculator.getWiderstand()));
+				lbError.setText("");
+				
+			}else {
+				lbError.setText(myCalculator.getError());
+			}
 			
 			});
 
