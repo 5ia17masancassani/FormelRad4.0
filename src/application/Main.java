@@ -96,6 +96,26 @@ public class Main extends Application {
 				if(txWiderstand.getText().isEmpty()==false) {
 					resistence = Double.parseDouble(txWiderstand.getText());
 				}
+				
+				//Feature8
+					if(myCalculator.getError().equals("")) {
+					
+					if(myCalculator.getLeistung() == 0.0) {
+						txLeistung.setStyle("-fx-text-fill: red;");
+					}
+					if(myCalculator.getSpannung() == 0.0) {
+						txSpannung.setStyle("-fx-text-fill: red;");
+					}
+					if(myCalculator.getStrom() == 0.0) {
+						txStrom.setStyle("-fx-text-fill: red;");
+					}
+					if(myCalculator.getWiderstand() == 0.0) {
+						txWiderstand.setStyle("-fx-text-fill: red;");
+					}
+				
+				
+				
+				
 				Calculator myCalculator = new Calculator(
 						power, tension, current, resistence);
 				System.out.print("Vorher:  ");
