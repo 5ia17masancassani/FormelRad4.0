@@ -49,7 +49,31 @@ public class Calculator {
 				+ widerstand + "]";
 	}
 	
-	//
+	public String getError() {
+		int count = 0;
+		if (leistung != 0.0) {
+			count++;
+		}
+
+		if (strom != 0.0) {
+			count++;
+		}
+
+		if (spannung != 0.0) {
+			count++;
+		}
+
+		if (widerstand != 0.0) {
+			count++;
+		}
+
+		if (count == 2) {
+			return "";
+		} else {
+			return "Bitte 2 Felder angeben.";
+		}
+	
+	}
 
 	
 

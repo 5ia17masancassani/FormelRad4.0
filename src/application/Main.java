@@ -86,6 +86,11 @@ public class Main extends Application {
 			btnReset.setText("Reset");
 			root.getChildren().add(btnReset);
 			
+			Label lbError = new Label("");
+			lbError.relocate(100, 445);
+			lbError.setFont(Font.font(15));
+			root.getChildren().add(lbError);
+			
 			
 			btnBerechnen.setOnAction(e -> {
 				
@@ -121,6 +126,11 @@ public class Main extends Application {
 				txSpannung.setText(Double.toString(myCalculator.getSpannung()));
 				txStrom.setText(Double.toString(myCalculator.getStrom()));
 				txWiderstand.setText(Double.toString(myCalculator.getWiderstand()));
+				lbError.setText("");
+				
+			}else {
+				lbError.setText(myCalculator.getError());
+			}
 			
 			});
 
