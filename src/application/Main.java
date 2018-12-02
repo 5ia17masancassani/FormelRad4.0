@@ -91,6 +91,19 @@ public class Main extends Application {
 			lbError.setFont(Font.font(15));
 			root.getChildren().add(lbError);
 			
+			btnReset.setOnAction(e -> {
+				txLeistung.setStyle("-fx-text-fill: black;");
+				txSpannung.setStyle("-fx-text-fill: black;");
+				txStrom.setStyle("-fx-text-fill: black;");
+				txWiderstand.setStyle("-fx-text-fill: black;");
+				
+				txLeistung.setText("");
+				txSpannung.setText("");
+				txStrom.setText("");
+				txWiderstand.setText("");
+				
+			});
+			
 			
 			btnBerechnen.setOnAction(e -> {
 				
