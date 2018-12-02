@@ -86,6 +86,11 @@ public class Main extends Application {
 			btnReset.setText("Reset");
 			root.getChildren().add(btnReset);
 			
+			Label lbError = new Label("");
+			lbError.relocate(100, 445);
+			lbError.setFont(Font.font(15));
+			root.getChildren().add(lbError);
+			
 			
 			btnBerechnen.setOnAction(e -> {
 				
