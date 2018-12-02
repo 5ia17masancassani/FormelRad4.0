@@ -12,7 +12,7 @@ import java.util.logging.Logger;
 public class Calculator {
 
 
-	  
+	private Logger logger = Logger.getLogger(Calculator.class.getName());  
 
 	private double leistung;
 	private double spannung;
@@ -85,54 +85,54 @@ public class Calculator {
 		if (leistung == 0.0 && spannung == 0.0 && strom != 0.0 && widerstand != 0.0) {
 
 			leistung = Math.round(pAusRundI(widerstand, strom) * 100.0) / 100.0;
-			
+			logger.log(Level.INFO, "pAusRundI");
 			spannung = Math.round(uAusRundI(widerstand, strom) * 100.0) / 100.0;
-			
+			logger.log(Level.INFO, "uAusRundI");
 
 		}
-	
+
 		if (leistung == 0.0 && spannung != 0.0 && strom == 0.0 && widerstand != 0.0) {
 
 			leistung = Math.round(pAusUundR(spannung, widerstand) * 100.0) / 100.0;
-			
+			logger.log(Level.INFO, "pAusUundR");
 			strom = Math.round(iAusUundR(spannung, widerstand) * 100.0) / 100.0;
-			
+			logger.log(Level.INFO, "iAusUundR");
 
 		}
-		
+
 		if (leistung != 0.0 && spannung == 0.0 && strom == 0.0 && widerstand != 0.0) {
 
 			spannung = Math.round(uAusPundR(leistung, widerstand) * 100.0) / 100.0;
-			
+			logger.log(Level.INFO, "uAusPundR");
 			strom = Math.round(iAusPundR(leistung, widerstand) * 100.0) / 100.0;
-			
+			logger.log(Level.INFO, "iAusPundR");
 
 		}
-		
+
 		if (leistung == 0.0 && spannung != 0.0 && strom != 0.0 && widerstand == 0.0) {
 
 			leistung = Math.round(pAusUundI(spannung, strom) * 100.0) / 100.0;
-			
+			logger.log(Level.INFO, "pAusUundI");
 			widerstand = Math.round(rAusUundI(spannung, strom) * 100.0) / 100.0;
-		
+			logger.log(Level.INFO, "rAusUundI");
 
 		}
-		
+
 		if (leistung != 0.0 && spannung == 0.0 && strom != 0.0 && widerstand == 0.0) {
 
 			spannung = Math.round(uAusPundI(leistung, strom) * 100.0) / 100.0;
-		
+			logger.log(Level.INFO, "uAusPundI");
 			widerstand = Math.round(rAusPundI(leistung, strom) * 100.0) / 100.0;
-			
+			logger.log(Level.INFO, "rAusPundI");
 
 		}
-		
+
 		if (leistung != 0.0 && spannung != 0.0 && strom == 0.0 && widerstand == 0.0) {
 
 			strom = Math.round(iAusPundU(leistung, spannung) * 100.0) / 100.0;
-			
+			logger.log(Level.INFO, "iAusPundU");
 			widerstand = Math.round(rAusUundP(spannung, leistung) * 100.0) / 100.0;
-			
+			logger.log(Level.INFO, "rAusUundP");
 
 		}
 		
